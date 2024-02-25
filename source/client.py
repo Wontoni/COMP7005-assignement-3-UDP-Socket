@@ -74,6 +74,7 @@ def send_message(words):
 
 def receieve_response():
     try: 
+        client.settimeout(10)
         data_size = struct.unpack(">I", client.recv(4))[0]
         # receive payload till received payload size is equal to data_size received
         received_data = b""
@@ -85,7 +86,7 @@ def receieve_response():
 
         display_message(decoded_response)
     except Exception as e:
-        handle_error("Failed to receive response")
+        handle_error("Failed to receive response from server")
         exit(1)
 
 def read_file():

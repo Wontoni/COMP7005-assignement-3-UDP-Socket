@@ -32,7 +32,7 @@ def bind_socket():
     try:
         addr = (server_host, server_port)
         server.bind(addr)
-        print('Server is listening for incoming connections...')
+        print('Server binded and waiting for incoming connections...')
     except Exception as e:
         handle_error("Failed to bind to the server")
 
